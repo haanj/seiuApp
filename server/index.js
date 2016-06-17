@@ -63,6 +63,48 @@ function syncTables(cb) {
       cb(); // should call startRouter(), which sets up the express routing
     })
   });
+
+}
+
+function nestListItems(rawList) { // nests the sql join results into prettier objects. sequelize nesting refractor will make this unnecessary
+  /* nested object schema
+    nestedList = {
+      1: {
+        list_id: 1,
+        list_name: '5 things'
+        list_items: [
+          {
+            list_item_id: 1,
+            list_item_rank: 1,
+            list_item_title: 'this is a thing',
+          },
+          {
+            list_item_id: 2,
+            list_item_rank: 2,
+            list_item_title: 'this is another thing',
+          }
+        ]
+      }
+  */
+
+  let nestedList = {};
+  rawList.forEach((item) => {
+    if (!nestedList[item.list_id]) { // creates entry if list is not in nestedList
+      nestedList[item.list_id] = {
+        list_id: item.list_id,
+        list_name: item.list_name,
+        list_items: []
+      };
+    }
+    nestedList[item.list_id].list_items.push({ // pushes list_items to list
+      list_item_rank: item.list_item_rank,
+      list_item_title: item.list_item_title,
+      list_item_id: item.list_item_id
+    })
+  })
+
+  return nestedList;
+
 }
 
 function startRouter() {
@@ -82,8 +124,7 @@ function startRouter() {
       console.log('GET request received for /test');
       sequelize.query('SELECT * FROM lists_tbl INNER JOIN list_items_tbl ON lists_tbl.list_id=list_items_tbl.list_id') // TODO: learn sequelize nesting
         .spread(function(results, metadata) {
-          console.log(results);
-          res.json(results);
+          res.json(nestListItems(results));
         })
 
       //db.ListItem.findAll({
