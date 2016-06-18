@@ -14,7 +14,7 @@ app.factory('ListService', ['$http', function($http) {
 
   // sends GET request to backend to retrieve current list
   myService.getLists = function(cb) {
-    $http.get(api + 'test')
+    $http.get(api + 'lists')
       .then((res) => {
         console.log(res.data);
         lists = res.data;
@@ -28,7 +28,8 @@ app.factory('ListService', ['$http', function($http) {
 }])
 
 app.controller('ListController', ['ListService', function(ListService) {
-  const vm = this;
+  var vm = this;
+  var active = null; 
 
   vm.lists = ListService.lists();
 
@@ -39,4 +40,19 @@ app.controller('ListController', ['ListService', function(ListService) {
       vm.lists = ListService.lists();
     });
   }
+
+  // checks if a list is active, to be used by ng-show
+  vm.isActive = function(id) {
+    return active == id;
+  }
+
+  // makes list active if clicked, inactive if already active
+  vm.toggleActive = function(id) {
+    if (active == id) {
+      return active = null;
+    } 
+    active = id;
+  }
+
+  vm.getLists();
 }])

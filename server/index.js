@@ -102,8 +102,15 @@ function nestListItems(rawList) { // nests the sql join results into prettier ob
       list_item_id: item.list_item_id
     })
   })
+  
+  let arrayList = [];
+  // janky code to transform object into array. Angular filter works better with arrays
+  for (var key in nestedList) {
+    arrayList.push(nestedList[key]);
+  }
+  
+  return arrayList;
 
-  return nestedList;
 
 }
 
@@ -119,9 +126,9 @@ function startRouter() {
   app.use(bodyParser.json());
 
   // /test routes
-  app.route('/test')
+  app.route('/lists')
     .get((req, res) => {
-      console.log('GET request received for /test');
+      console.log('GET request received for /lists');
       sequelize.query('SELECT * FROM lists_tbl INNER JOIN list_items_tbl ON lists_tbl.list_id=list_items_tbl.list_id') // TODO: learn sequelize nesting
         .spread(function(results, metadata) {
           res.json(nestListItems(results));

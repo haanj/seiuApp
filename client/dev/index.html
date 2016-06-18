@@ -4,16 +4,16 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <meta charset="UTF-8">
   <title>List</title>
-  </style>
 </head>
-<body ng-app="app">
-  <main>
-    {{'Hello'}}
-  </main>
+<body class="container" ng-app="app">
   <section ng-controller="ListController as listctrl">
-    {{ listctrl.test }}
-    {{ listctrl.lists }}
-    <button ng-click="listctrl.getLists()">update</button>
+     Search: <input type="text" ng-model="searchFilter" value="filter"><br>
+    <div ng-repeat="List in listctrl.lists | filter: searchFilter">
+      <h3 ng-click="listctrl.toggleActive(List.list_id)">{{List.list_name}}</h3>
+      <p ng-show="listctrl.isActive(List.list_id)" ng-repeat="item in List.list_items">
+        {{item.list_item_title}}
+      </p>
+    </div>
   </section>
   <script src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
   <script src='./js/app.js'></script>
