@@ -1,18 +1,18 @@
-\n	1	'Corn'	1
-\n	2	'Beans'	1
-\n	3	'A smaller Burrito'	1
-\n	4	'Chiles'	1
-\n	5	'Bacon'	1
-\n	1	'Cats are the most popular pet in the United States: There are 88 million pet cats and 74 million dogs.'	2
-\n	2	'A group of cats is called a clowder.'	2
-\n	3	'A cat has been mayor of Talkeetna, Alaska, for 15 years.'	2
-\n	4	'Owning a cat can reduce the risk of stroke and heart attack by a third.'	2
-\n	5	'Adult cats only meow to communicate with humans.'	2
-\n	6	'Cats and humans have nearly identical sections of the brain that control emotion.'	2
-\n	7	'Isaac Newton is credited with inventing the cat door.'	2
-\n	8	'Black cats are considered to bring bad luck.'	2
-\n	9	'Cats are fuzzy.'	2
-\n	10	'Cats are better than dogs. Fact.'	2
-\n	1	'Paul Blart: Mall Cop'	3
-\n	2	'Shrek'	3
-\n	3	'Die hard'	3
+\n	1	Corn	1
+\n	2	Beans	1
+\n	3	A smaller Burrito	1
+\n	4	Chiles	1
+\n	5	Bacon	1
+\n	1	Cats are the most popular pet in the United States: There are 88 million pet cats and 74 million dogs.	2
+\n	2	A group of cats is called a clowder.	2
+\n	3	A cat has been mayor of Talkeetna, Alaska, for 15 years.	2
+\n	4	Owning a cat can reduce the risk of stroke and heart attack by a third.	2
+\n	5	Adult cats only meow to communicate with humans.	2
+\n	6	Cats and humans have nearly identical sections of the brain that control emotion.	2
+\n	7	Isaac Newton is credited with inventing the cat door.	2
+\n	8	Black cats are considered to bring bad luck.	2
+\n	9	Cats are fuzzy.	2
+\n	10	Cats are better than dogs. Fact.	2
+\n	1	Paul Blart: Mall Cop	3
+\n	2	Shrek	3
+\n	3	Die hard	3

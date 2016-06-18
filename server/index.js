@@ -110,8 +110,6 @@ function nestListItems(rawList) { // nests the sql join results into prettier ob
   }
   
   return arrayList;
-
-
 }
 
 function startRouter() {
@@ -133,16 +131,6 @@ function startRouter() {
         .spread(function(results, metadata) {
           res.json(nestListItems(results));
         })
-
-      //db.ListItem.findAll({
-        //include: [{
-          //model: db.List,
-          //where: {}
-        //}]
-      //})
-        //.then((data) => {
-          //res.json(data);
-        //});
 
     });
 

@@ -15,6 +15,26 @@
       </p>
     </div>
   </section>
+
+  <section ng-controller="NewController as newctrl">
+    <button ng-click="newctrl.toggleForm()">Add New List</button>
+    <section ng-show="newctrl.formActive">
+      <h3>Title</h3>
+      <input type="text" ng-model="newctrl.newPost.list_name"><br>
+
+      <h3>List Items</h3>
+      <div ng-repeat="item in newctrl.newPost.list_items">
+        <input type="text" ng-model="item.list_item_title"><br>
+      </div>
+      <button ng-click="newctrl.addItem()">+</button>
+      <button ng-click="newctrl.removeItem()">-</button>
+      <br>
+      <button ng-click="newctrl.submit()">Submit</button>
+      <button ng-click="newctrl.reset()">Reset</button>
+    </section>
+
+  </section>
+
   <script src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
   <script src='./js/app.js'></script>
 </body> 
