@@ -1,40 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
   <meta charset="UTF-8">
   <title>List</title>
 </head>
 <body class="container" ng-app="app">
-  <section ng-controller="ListController as listctrl">
-     Search: <input type="text" ng-model="searchFilter" value="filter"><br>
-    <div ng-repeat="List in listctrl.lists | filter: searchFilter">
-      <h3 ng-click="listctrl.toggleActive(List.list_id)">{{List.list_name}}</h3>
-      <p ng-show="listctrl.isActive(List.list_id)" ng-repeat="item in List.list_items">
-        {{item.list_item_title}}
-      </p>
+  <header class="jumbotron">
+    <h1>Fuzzbeed</h1>
+    <h2>List of Lists</h2>
+    <div class="col-md-4 input-group input-group-sm">
+      <span class="input-group-addon">Search:</span>
+      <input class="form-control" type="text" ng-model="searchFilter" placeholder="search for"><br>
     </div>
-  </section>
+  </header>
 
-  <section ng-controller="NewController as newctrl">
-    <button ng-click="newctrl.toggleForm()">Add New List</button>
-    <section ng-show="newctrl.formActive">
-      <h3>Title</h3>
-      <input type="text" ng-model="newctrl.newPost.list_name"><br>
+  <main class="well">
+    <section ng-view></div>
+  </main>
 
-      <h3>List Items</h3>
-      <div ng-repeat="item in newctrl.newPost.list_items">
-        <input type="text" ng-model="item.list_item_title"><br>
-      </div>
-      <button ng-click="newctrl.addItem()">+</button>
-      <button ng-click="newctrl.removeItem()">-</button>
-      <br>
-      <button ng-click="newctrl.submit()">Submit</button>
-      <button ng-click="newctrl.reset()">Reset</button>
-    </section>
-
-  </section>
-
-  <script src="https://opensource.keycdn.com/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.min.js"></script>
   <script src='./js/app.js'></script>
 </body> 
