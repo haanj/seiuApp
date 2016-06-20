@@ -138,7 +138,7 @@ app.config(['$routeProvider', function($routeProvider) {
       controllerAs: 'listctrl',
       template: '\
         <div class="panel panel-default" ng-repeat="List in listctrl.lists | filter: searchFilter">\
-          <div title="Click to show List" class="panel-heading" ng-click="listctrl.toggleActive(List.list_id)">\
+          <div title="Click to show list" class="panel-heading" ng-click="listctrl.toggleActive(List.list_id)">\
             <h3>{{List.list_name}}</h3>\
           </div>\
           <div class="panel-body" ng-show="listctrl.isActive(List.list_id)">\
