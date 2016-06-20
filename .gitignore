@@ -1,4 +1,4 @@
 node_modules
+client/public/
 .config.js
 *.swp
-public
