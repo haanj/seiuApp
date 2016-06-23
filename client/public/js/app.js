@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('app', ['ngRoute']);
-var api = 'http://localhost:3000/';
+var api = Number(process.env.API) || 'http://localhost:3000/';
 
 // NOTE: in a larger angular app, I would modularize the design,
 // putting each controller/service into their own file. It makes it much easier to
